@@ -1,9 +1,8 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Brain, ShieldCheck, HeartCalls, ChevronRight, Zap, RefreshCw } from 'lucide-react';
+import { Brain, Lock, Activity, ChevronRight, PlayCircle, CheckCircle2, TrendingUp } from 'lucide-react';
 
-// Animation variants
 const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
@@ -18,91 +17,134 @@ function App() {
     return (
         <div className="app-container">
             {/* Navigation */}
-            <nav style={{ padding: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', maxWidth: '1200px', margin: '0 auto' }}>
-                <div style={{ fontSize: '1.5rem', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <Brain size={28} color="#fff" /> Clarity for Humans
+            <nav className="navbar">
+                <div className="logo">
+                    <Brain size={28} className="icon-glow" /> Clarity for Humans
                 </div>
-                <div>
-                    <button className="secondary-button" style={{ marginRight: '1rem', border: 'none' }}>Login</button>
-                    <button className="cta-button" style={{ padding: '0.5rem 1.5rem', fontSize: '0.9rem' }}>Join Now</button>
+                <div className="nav-links">
+                    <button className="secondary-button">Log In</button>
+                    <button className="cta-button">Start Protocol</button>
                 </div>
             </nav>
 
             {/* Hero Section */}
-            <header style={{ minHeight: '80vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', padding: '0 2rem' }}>
+            <header className="hero">
                 <motion.div
                     initial="hidden"
                     animate="visible"
                     variants={staggerContainer}
-                    style={{ maxWidth: '800px' }}
+                    className="hero-content"
                 >
-                    <motion.div variants={fadeInUp} style={{ marginBottom: '1.5rem', display: 'inline-block', padding: '0.5rem 1rem', background: 'rgba(255,255,255,0.05)', borderRadius: '50px', fontSize: '0.9rem', color: '#a0a0a6' }}>
-                        Reclaim Your Mind, Rebuild Your Life
+                    <motion.div variants={fadeInUp} className="badge">
+                        The Science of Self-Mastery
                     </motion.div>
 
-                    <motion.h1 variants={fadeInUp} style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', marginBottom: '1.5rem', lineHeight: '1.1' }} className="gradient-text">
-                        Break the Cycle.<br />Find True Clarity.
+                    <motion.h1 variants={fadeInUp} className="hero-title gradient-text">
+                        Willpower isn't enough.<br />
+                        You need a Protocol.
                     </motion.h1>
 
-                    <motion.p variants={fadeInUp} style={{ fontSize: '1.2rem', color: 'var(--color-text-secondary)', marginBottom: '3rem', maxWidth: '600px', margin: '0 auto 3rem auto' }}>
-                        A science-backed, compassionate approach to overcoming porn addiction.
-                        No shame. Just tools, community, and a clear path forward.
+                    <motion.p variants={fadeInUp} className="hero-subtitle">
+                        Stop relying on motivation. <strong>The Clarity Protocol</strong> is a 90-day neuroscience-based system to rewire your dopamine receptors, crush urges, and reclaim your masculinity.
                     </motion.p>
 
-                    <motion.div variants={fadeInUp} style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-                        <button className="cta-button" style={{ padding: '1rem 2.5rem', fontSize: '1.1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                            Start Your Recovery <ChevronRight size={20} />
+                    <motion.div variants={fadeInUp} className="cta-group">
+                        <button className="cta-button primary">
+                            Start Your Transformation <ChevronRight size={20} />
                         </button>
-                        <button className="secondary-button" style={{ padding: '1rem 2.5rem', fontSize: '1.1rem' }}>
-                            How It Works
-                        </button>
+                        <div className="trust-indicator">
+                            <CheckCircle2 size={16} color="var(--color-success)" /> Science-backed
+                            <CheckCircle2 size={16} color="var(--color-success)" /> 100% Hosted Privately
+                        </div>
                     </motion.div>
                 </motion.div>
             </header>
 
-            {/* Feature Section */}
-            <section style={{ padding: '5rem 2rem', background: 'var(--color-bg-secondary)' }}>
-                <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
-                    style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}
-                >
-                    <FeatureCard
-                        icon={<ShieldCheck size={40} color="#00e676" />}
-                        title="Private & Secure"
-                        desc="Your journey is yours alone. Fully encrypted, anonymous, and judgment-free environment."
-                    />
-                    <FeatureCard
-                        icon={<Zap size={40} color="#3d5afe" />}
-                        title="Neuroscience-Based"
-                        desc="Understand how dopamine affects your brain and learn proven techniques to rewire your neural pathways."
-                    />
-                    <FeatureCard
-                        icon={<RefreshCw size={40} color="#ff4081" />}
-                        title="Daily Daily Reprogramming"
-                        desc="Consistent daily actions build new habits. Track streaks, journal triggers, and celebrate wins."
-                    />
-                </motion.div>
+            {/* The Problem Section */}
+            <section className="section-dark">
+                <div className="container">
+                    <h2 className="section-title">Why You've Failed Before</h2>
+                    <div className="grid-3">
+                        <div className="feature-card">
+                            <Activity size={40} className="icon-accent" />
+                            <h3>The Dopamine Trap</h3>
+                            <p>Your brain isn't broken; it's hijacked. Porn creates a super-stimulus that rewires your reward system, making "normal" life feel boring.</p>
+                        </div>
+                        <div className="feature-card">
+                            <TrendingUp size={40} className="icon-accent" />
+                            <h3>The "White Knuckle" Effect</h3>
+                            <p>Relying on willpower alone drains your mental energy. Eventually, you get tired, stressed, or lonely, and the cycle repeats.</p>
+                        </div>
+                        <div className="feature-card">
+                            <Lock size={40} className="icon-accent" />
+                            <h3>Isolation & Shame</h3>
+                            <p>Secrecy is the fuel of addiction. Trying to fight a biological enemy in a dark room by yourself is a guaranteed way to lose.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* The Solution: The Protocol */}
+            <section className="section-glow">
+                <div className="container">
+                    <div className="split-layout">
+                        <div className="text-content">
+                            <h2 className="section-title">Enter: The Clarity Protocol</h2>
+                            <p className="lead-text">A systematic, day-by-day program to engineer your recovery.</p>
+
+                            <ul className="benefit-list">
+                                <li>
+                                    <CheckCircle2 color="var(--color-success)" />
+                                    <strong>Daily Neuro-Drills:</strong> 5-minute exercises to retrain your focus.
+                                </li>
+                                <li>
+                                    <CheckCircle2 color="var(--color-success)" />
+                                    <strong>Urge-Surfing Audio:</strong> Guided intervention tracks for when cravings hit.
+                                </li>
+                                <li>
+                                    <CheckCircle2 color="var(--color-success)" />
+                                    <strong>The "Black Box" Journal:</strong> Encrypted logging to identify your specific triggers.
+                                </li>
+                                <li>
+                                    <CheckCircle2 color="var(--color-success)" />
+                                    <strong>Progress Analytics:</strong> Watch your brain heal with data, not just streaks.
+                                </li>
+                            </ul>
+
+                            <button className="cta-button large-cta">
+                                Get Access to The Protocol
+                            </button>
+                        </div>
+                        <div className="visual-content">
+                            {/* Abstract visualization of the app interface */}
+                            <div className="app-mockup">
+                                <div className="mockup-header">
+                                    <span className="dot red"></span>
+                                    <span className="dot yellow"></span>
+                                    <span className="dot green"></span>
+                                </div>
+                                <div className="mockup-body">
+                                    <div className="progress-circle">
+                                        <span>Day 14</span>
+                                        <small>Dopamine Reset</small>
+                                    </div>
+                                    <div className="task-item active">
+                                        <PlayCircle size={16} /> Morning Mindset Audio
+                                    </div>
+                                    <div className="task-item">
+                                        <Activity size={16} /> Evening Reflection
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             {/* Footer */}
-            <footer style={{ padding: '4rem 2rem', textAlign: 'center', borderTop: '1px solid var(--color-border)' }}>
-                <p style={{ color: 'var(--color-text-secondary)' }}>© {new Date().getFullYear()} Clarity for Humans. All rights reserved.</p>
+            <footer className="footer">
+                <p>© {new Date().getFullYear()} Clarity for Humans. Reclaim your potential.</p>
             </footer>
-        </div>
-    )
-}
-
-function FeatureCard({ icon, title, desc }) {
-    return (
-        <div className="glass-panel" style={{ padding: '2rem', textAlign: 'left' }}>
-            <div style={{ marginBottom: '1.5rem', background: 'rgba(255,255,255,0.05)', width: 'fit-content', padding: '1rem', borderRadius: '12px' }}>
-                {icon}
-            </div>
-            <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>{title}</h3>
-            <p style={{ color: 'var(--color-text-secondary)', lineHeight: '1.6' }}>{desc}</p>
         </div>
     )
 }
